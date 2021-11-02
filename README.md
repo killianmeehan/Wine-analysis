@@ -5,8 +5,8 @@
 For more information, visit [this link](https://archive.ics.uci.edu/ml/datasets/wine+quality).
 
 **Input variables (based on physicochemical tests):**
-1. fixed acidity in g(tartaricacid)/L 
-2. volatile acidity in g(aceticacid)/L 
+1. fixed acidity in g(tartaric acid)/L 
+2. volatile acidity in g(acetic acid)/L 
 3. citric acid in g/L
 4. residual sugar in g/L
 5. chlorides in g(sodium chloride)/L
@@ -51,8 +51,12 @@ A third dataset was created, combining both red and white wines. It might be use
 
 The records were re-shuffled to randomize data points. This was done as there may otherwise be an issue when fitting machine learning model, if for example the dataset is not split in a fair way.
 
+Based on the distribution of quality scores, it was decided to increase the number of labels from three to five. This split out the middle into three categories; medium-low, medium, and medium-high. The aim of this was to extract more meaningful conclusions from data analysed by category. 
+
 Next, the individual attributes of red and white wines were compared side by side using concat() and describe(). This overview allows for preliminary observations of patterns and a good indication of which attributes to expore in more detail.
 
 Distribution of quality is based on human perception and as such caution should be used when correlating specific chemical components. There may not be any extremely strong or consistent correlation to any single attribute. The possible over representation of medium-quality wines also reinforces this idea.
 
-Geerally, we can see many attributes appear to be limited in range when considering the highest quality level, but are much more spread at the lower end of the scale. More emphasis will be put at the extremes of the scale as, despite the lower amount of data available at these extreme ends, they represent a very definite and clear reaction on behalf of the sommelier
+As such, although there are fewer samples of very low and very high quality wine (as judged by the sommeliers), these results actually have higher statistical value as they have the potential to represent clearly definable characteristics of wine, whether positive or negative. Hypothesis testing will therefore focus mostly on these results and what they reveal. However, the newly split middle categories will also be used to determine if there is a trend towards high or low quality with respect to chemical composition.
+
+There was a positive correlation observed between alcohol concentration and quality. It is possible that this is due to the alcohol's ability to deliver dissolved volatiles to the nose. It is recommended to further investigate the alcohol content's correlation with other attributes of the wine to determine if there is a link to quality. 
