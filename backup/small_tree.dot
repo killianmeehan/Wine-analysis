@@ -1,0 +1,33 @@
+digraph Tree {
+node [shape=box, style="rounded", color="black", fontname=helvetica] ;
+edge [fontname=helvetica] ;
+0 [label="alcohol <= 10.7\ngini = 0.6\nsamples = 2187\nvalue = [1148, 1538, 742]"] ;
+1 [label="alcohol <= 9.8\ngini = 0.6\nsamples = 1268\nvalue = [935, 869, 167]"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="residual sugar <= 12.2\ngini = 0.5\nsamples = 734\nvalue = [625, 425, 74]"] ;
+1 -> 2 ;
+3 [label="gini = 0.5\nsamples = 461\nvalue = [429, 249, 17]"] ;
+2 -> 3 ;
+4 [label="gini = 0.6\nsamples = 273\nvalue = [196, 176, 57]"] ;
+2 -> 4 ;
+5 [label="fixed acidity <= 7.4\ngini = 0.6\nsamples = 534\nvalue = [310, 444, 93]"] ;
+1 -> 5 ;
+6 [label="gini = 0.6\nsamples = 384\nvalue = [192, 350, 61]"] ;
+5 -> 6 ;
+7 [label="gini = 0.6\nsamples = 150\nvalue = [118, 94, 32]"] ;
+5 -> 7 ;
+8 [label="fixed acidity <= 7.8\ngini = 0.6\nsamples = 919\nvalue = [213, 669, 575]"] ;
+0 -> 8 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+9 [label="alcohol <= 11.8\ngini = 0.6\nsamples = 794\nvalue = [149, 567, 543]"] ;
+8 -> 9 ;
+10 [label="gini = 0.6\nsamples = 430\nvalue = [114, 350, 201]"] ;
+9 -> 10 ;
+11 [label="gini = 0.5\nsamples = 364\nvalue = [35, 217, 342]"] ;
+9 -> 11 ;
+12 [label="free sulfur dioxide <= 13.5\ngini = 0.6\nsamples = 125\nvalue = [64, 102, 32]"] ;
+8 -> 12 ;
+13 [label="gini = 0.2\nsamples = 12\nvalue = [18, 2, 0]"] ;
+12 -> 13 ;
+14 [label="gini = 0.6\nsamples = 113\nvalue = [46, 100, 32]"] ;
+12 -> 14 ;
+}
