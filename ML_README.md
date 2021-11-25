@@ -27,3 +27,14 @@ The key difference in speed is because XGBoost split the tree nodes one level at
 So XGBoost developers later improved their algorithms to catch up with LightGBM, allowing users to also run XGBoost in split-by-leaf mode (grow_policy = ‘lossguide’). Now XGBoost is much faster with this improvement, but LightGBM is still about 1.3X — 1.5X the speed of XGB.
 
 LightGBM is susceptible to overfitting on small datasets so be careful!
+
+
+Cohen’s kappa is more informative than overall accuracy when working with unbalanced data. Keep this in mind when you compare or optimize classification models!
+Take a look at the row and column totals in the confusion matrix. Are the distributions of the target/predicted classes similar? If they’re not, the maximum reachable Cohen’s kappa value will be lower.
+The same model will give you lower values of Cohen’s kappa for unbalanced than for balanced test data.
+Cohen’s kappa says little about the expected accuracy of a single prediction 
+
+
+Permutation feature importance is a model inspection technique that can be used for any fitted estimator when the data is tabular. This is especially useful for non-linear or opaque estimators. The permutation feature importance is defined to be the decrease in a model score when a single feature value is randomly shuffled 1. This procedure breaks the relationship between the feature and the target, thus the drop in the model score is indicative of how much the model depends on the feature. This technique benefits from being model agnostic and can be calculated many times with different permutations of the feature.
+
+Warning Features that are deemed of low importance for a bad model (low cross-validation score) could be very important for a good model. Therefore it is always important to evaluate the predictive power of a model using a held-out set (or better with cross-validation) prior to computing importances. Permutation importance does not reflect to the intrinsic predictive value of a feature by itself but how important this feature is for a particular model.
